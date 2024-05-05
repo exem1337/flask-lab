@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="page">
+    <h2>Авторизация</h2>
+    <p>Входите, пожалуйста</p>
+
+    <form method="post" action="/login">
+        <label for="user_id">Логин:</label>
+        <input type="text" id="user_id" name="user_id">
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Войти</button>
+    </form>
+    <p>Нету аккаунта? <a href="/registration">Зарегистрируйтесь</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+.page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+header {
+    width: 100%;
+    background: antiquewhite;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header span {
+    font-size: 2em;
+}
+
+header ul {
+    display: flex;
+    gap: 24px;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
