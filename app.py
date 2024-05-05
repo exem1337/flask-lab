@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from sklearn.linear_model import LinearRegression
 import numpy as np
@@ -42,7 +42,7 @@ def registration():
 
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
-            # flash('Пользователь уже существует.', 'error')
+            flash('Пользователь уже существует.', 'error')
             return redirect(url_for('registration'))
 
         hashed_password = generate_password_hash(password)
@@ -50,7 +50,7 @@ def registration():
         db.session.add(new_user)
         db.session.commit()
 
-        # flash('Registration successful. Please log in.', 'success')
+        flash('Регистрация успешна', 'success')
         return redirect(url_for('login'))
 
     return render_template('registration.html')
@@ -67,6 +67,8 @@ def login():
             login_user(user)
             next_page = request.args.get('next')
             return redirect(next_page or url_for('home'))
+        else:
+            flash('Неверные данные для входа')
 
     return render_template('login.html')
 
